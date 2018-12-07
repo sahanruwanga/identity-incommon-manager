@@ -1,0 +1,160 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://mgt.incommon.identity.carbon.wso2.org" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://mgt.incommon.identity.carbon.wso2.org">
+    <wsdl:documentation>InCommonMetadataManagementService</wsdl:documentation>
+    <wsdl:types>
+        <xs:schema xmlns:ns="http://org.apache.axis2/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://org.apache.axis2/xsd">
+            <xs:element name="deleteCofiguration">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="refreshConfiguration">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updateSchedule">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="startConfiguration">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="url" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="period" type="xs:int"/>
+                        <xs:element minOccurs="0" name="refreshEnable" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="refreshConfigurationRequest">
+        <wsdl:part name="parameters" element="ns1:refreshConfiguration"/>
+    </wsdl:message>
+    <wsdl:message name="updateScheduleRequest">
+        <wsdl:part name="parameters" element="ns1:updateSchedule"/>
+    </wsdl:message>
+    <wsdl:message name="startConfigurationRequest">
+        <wsdl:part name="parameters" element="ns1:startConfiguration"/>
+    </wsdl:message>
+    <wsdl:message name="startConfigurationResponse"/>
+    <wsdl:message name="deleteCofigurationRequest">
+        <wsdl:part name="parameters" element="ns1:deleteCofiguration"/>
+    </wsdl:message>
+    <wsdl:portType name="InCommonMetadataManagementServicePortType">
+        <wsdl:operation name="refreshConfiguration">
+            <wsdl:input message="tns:refreshConfigurationRequest" wsaw:Action="urn:refreshConfiguration"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateSchedule">
+            <wsdl:input message="tns:updateScheduleRequest" wsaw:Action="urn:updateSchedule"/>
+        </wsdl:operation>
+        <wsdl:operation name="startConfiguration">
+            <wsdl:input message="tns:startConfigurationRequest" wsaw:Action="urn:startConfiguration"/>
+            <wsdl:output message="tns:startConfigurationResponse" wsaw:Action="urn:startConfigurationResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="deleteCofiguration">
+            <wsdl:input message="tns:deleteCofigurationRequest" wsaw:Action="urn:deleteCofiguration"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="InCommonMetadataManagementServiceSoap11Binding" type="tns:InCommonMetadataManagementServicePortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="refreshConfiguration">
+            <soap:operation soapAction="urn:refreshConfiguration" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="updateSchedule">
+            <soap:operation soapAction="urn:updateSchedule" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="startConfiguration">
+            <soap:operation soapAction="urn:startConfiguration" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deleteCofiguration">
+            <soap:operation soapAction="urn:deleteCofiguration" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="InCommonMetadataManagementServiceSoap12Binding" type="tns:InCommonMetadataManagementServicePortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="refreshConfiguration">
+            <soap12:operation soapAction="urn:refreshConfiguration" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="updateSchedule">
+            <soap12:operation soapAction="urn:updateSchedule" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="startConfiguration">
+            <soap12:operation soapAction="urn:startConfiguration" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deleteCofiguration">
+            <soap12:operation soapAction="urn:deleteCofiguration" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="InCommonMetadataManagementServiceHttpBinding" type="tns:InCommonMetadataManagementServicePortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="refreshConfiguration">
+            <http:operation location="refreshConfiguration"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="updateSchedule">
+            <http:operation location="updateSchedule"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="startConfiguration">
+            <http:operation location="startConfiguration"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deleteCofiguration">
+            <http:operation location="deleteCofiguration"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="InCommonMetadataManagementService">
+        <wsdl:port name="InCommonMetadataManagementServiceHttpsSoap11Endpoint" binding="tns:InCommonMetadataManagementServiceSoap11Binding">
+            <soap:address location="https://localhost:9443/services/InCommonMetadataManagementService.InCommonMetadataManagementServiceHttpsSoap11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="InCommonMetadataManagementServiceHttpsSoap12Endpoint" binding="tns:InCommonMetadataManagementServiceSoap12Binding">
+            <soap12:address location="https://localhost:9443/services/InCommonMetadataManagementService.InCommonMetadataManagementServiceHttpsSoap12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="InCommonMetadataManagementServiceHttpsEndpoint" binding="tns:InCommonMetadataManagementServiceHttpBinding">
+            <http:address location="https://localhost:9443/services/InCommonMetadataManagementService.InCommonMetadataManagementServiceHttpsEndpoint/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

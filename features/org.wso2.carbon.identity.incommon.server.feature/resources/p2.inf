@@ -1,0 +1,4 @@
+instructions.configure = \
+org.eclipse.equinox.p2.touchpoint.natives.copy(source:${installFolder}/../features/org.wso2.carbon.identity.incommon
+.server_${feature.version}/data/incommon-metadata.xml,target:${installFolder}/../../data/incommon-metadata.xml,
+overwrite:true);\
